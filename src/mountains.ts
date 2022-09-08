@@ -11,10 +11,10 @@ const mountains: Mountain[] = [
 
 export const findNameOfTallestMountain = (array: Mountain[]): string => {
     
-    array.map(object => {
-        Math.max(...array);
-        return object.name;
+    const highest = array.reduce((previous, current) => {
+        return current.height > previous.height ? current : previous;
     });
+    return highest.name;
 }
 
 let tallestMountain = findNameOfTallestMountain(mountains)
